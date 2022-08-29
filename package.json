@@ -9,11 +9,26 @@
         "node-red",
         "Grasscutters"
     ],
+    "contributors": [
+        {
+            "name": "666Qi",
+            "url": "https://www.cyqi.top"
+        },
+        "liujiaqi@cyqi.top"
+    ],
+    "repository": "liujiaqi7998/node-red-easy-grasscutters",
+    "author": {
+        "name": "666Qi",
+        "url": "https://www.cyqi.top"
+    },
+    "homepage": "https://github.com/liujiaqi7998/node-red-easy-grasscutters",
+    "license": "MIT",
+    "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
-            "RunCmdByPlayer":"RunCmdByPlayer.js",
-            "ConsoleLog":"ConsoleLog.js",
-            "RunCommand":"RunCommand.js",
+            "RunCmdByPlayer": "RunCmdByPlayer.js",
+            "ConsoleLog": "ConsoleLog.js",
+            "RunCommand": "RunCommand.js",
             "remote-server": "remote-server.js",
             "GetPlayerNum": "GetPlayerNum.js",
             "GetPlayerLocation": "GetPlayerLocation.js",
