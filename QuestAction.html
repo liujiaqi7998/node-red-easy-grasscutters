@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('QuestAction', {
+        category: 'Grasscutters',
+        color: '#a6bbcf',
+        defaults: {
+            server: { value: "", type: "remote-server" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "QuestAction";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="QuestAction">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="QuestAction">
+    <p>开始剧情</p>
+    <p>quest action</p>
+
+    <h3>输入</h3>
+        <dl class="message-properties">
+            <dt>数组
+                <span class="property-type">any</span>
+            </dt>
+            <dd> 包含:player(玩家uid),Quest_id(剧情ID) </dd>
+            <dd> 向玩家添加本剧情 </dd>
+            <dd> Add this quest to the player </dd>
+        </dl>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>操作结果
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> 输出为true时表示创建完成 </dd>
+            <dd> When the output is true, the creation is completed </dd>
+        </dl>
+</script>

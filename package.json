@@ -26,6 +26,8 @@
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
+            "QuestFinish": "QuestFinish.js",
+            "QuestAction": "QuestAction.js",
             "RunCmdByPlayer": "RunCmdByPlayer.js",
             "ConsoleLog": "ConsoleLog.js",
             "RunCommand": "RunCommand.js",
