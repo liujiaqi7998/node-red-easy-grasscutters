@@ -1,0 +1,23 @@
+{
+    "name": "node-red-easy-grasscutters",
+    "version": "0.0.1",
+    "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
+    "dependencies": {
+        "ws": "^8.8.1"
+    },
+    "keywords": [
+        "node-red",
+        "Grasscutters"
+    ],
+    "node-red": {
+        "nodes": {
+            "RunCmdByPlayer":"RunCmdByPlayer.js",
+            "ConsoleLog":"ConsoleLog.js",
+            "RunCommand":"RunCommand.js",
+            "remote-server": "remote-server.js",
+            "GetPlayerNum": "GetPlayerNum.js",
+            "GetPlayerLocation": "GetPlayerLocation.js",
+            "GetPlayerBirthday": "GetPlayerBirthday.js"
+        }
+    }
+}

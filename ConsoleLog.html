@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ConsoleLog', {
+        category: 'Grasscutters',
+        color: '#a6bbcf',
+        defaults: {
+            server: {value:"", type:"remote-server"},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "ConsoleLog";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ConsoleLog">
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ConsoleLog">
+    <p>控制台日志</p>
+    <p>Get console log</p>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>日志（条）
+                <span class="property-type">num</span>
+            </dt>
+            <dd> 逐条输出日志 </dd>
+            <dd> Output log one by one </dd>
+        </dl>
+        
+</script>
