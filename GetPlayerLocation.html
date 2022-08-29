@@ -3,6 +3,7 @@
         category: 'Grasscutters',
         color: '#a6bbcf',
         defaults: {
+            server: {value:"", type:"remote-server"},
         },
         inputs: 1,
         outputs: 4,
@@ -14,7 +15,10 @@
 </script>
 
 <script type="text/x-red" data-template-name="GetPlayerLocation">
-
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
 </script>
 
 <script type="text/x-red" data-help-name="GetPlayerLocation">
