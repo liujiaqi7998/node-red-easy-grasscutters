@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    RED.nodes.registerType('CreateEntity', {
+        category: 'Grasscutters',
+        color: '#a6bbcf',
+        defaults: {
+            server: { value: "", type: "remote-server" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "CreateEntity";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="CreateEntity">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="CreateEntity">
+    <p>在玩家处创建实体</p>
+    <p>Entity deaths</p>
+
+    <h3>输入</h3>
+        <dl class="message-properties">
+            <dt>数组
+                <span class="property-type">any</span>
+            </dt>
+            <dd> 包含:id(实体ID),amount(数量),level(等级)</dd>
+            <dd> 均为int型</dd>
+            <dd> 要创建实体的信息 </dd>
+            <dd> Coordinate radius information </dd>
+        </dl>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>实体唯一ID
+                <span class="property-type">int</span>
+            </dt>
+            <dd> (每添加一个触发一次)</dd>
+            <dd> 在服务器中改实体的唯一身份标识id,用于监测实体变化输入</dd>
+            <dd> Change the unique ID of the entity in the server to monitor the entity change input </dd>
+        </dl>
+</script>
