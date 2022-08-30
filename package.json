@@ -26,7 +26,8 @@
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
-            "CreateEntity":"CreateEntity.js",
+            "OnQuestChange": "OnQuestChange.js",
+            "CreateEntity": "CreateEntity.js",
             "OnKillEntity": "OnKillEntity.js",
             "ChangePosition": "ChangePosition.js",
             "OnPosition": "OnPosition.js",

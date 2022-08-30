@@ -2,26 +2,21 @@ module.exports = function (RED) {
 
 
 
-    function CreateEntity(config) {
+    function OnQuestChange(config) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-        var g_msg;
+
         this.on('input', function (msg) {
             if (this.server) {
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
-                g_msg = msg;
+
                 //建立发送信息的JSON模板
                 var temp_msg = {};
-                temp_msg['type'] = "CreateEntity";
-
-                temp_msg['id'] = parseInt(msg.payload['Entity_id']);
-                temp_msg['amount'] = parseInt(msg.payload['amount']);
-                temp_msg['level'] = parseInt(msg.payload['level']);
-                temp_msg['player_uid'] = msg.payload['player'];
-
-
+                temp_msg['type'] = "OnQuestChange";
+                temp_msg['id'] = parseInt(msg.payload['id']);
+                temp_msg['state'] = msg.payload['state'];
                 temp_msg['msg_id'] = this.id;
 
                 //发送信息
@@ -32,6 +27,13 @@ module.exports = function (RED) {
         });
 
         this.on('close', function () {
+            // 发送注销监听事件
+            var temp_msg = {};
+            temp_msg['type'] = "OnQuestChange";
+            temp_msg['msg_id'] = this.id;
+            temp_msg['del'] = "1";
+            this.server.send(JSON.stringify(temp_msg).toString());
+
             // 从接收监听器中注销
             this.server.rec_del(this.id);
         });
@@ -47,14 +49,16 @@ module.exports = function (RED) {
                 this.error(temp['data']);
                 return;
             }
-            
-            g_msg.payload['player_uid'] = temp['player_uid'];
-            g_msg.payload['Entity_uuid'] = temp['data'];
+
+            //新建标准返回格式
+            var msg = {};
+            msg['payload'] = temp['data'];
+
             //调用节点输出
-            this.send(g_msg);
+            this.send(msg);
 
         }
     }
 
-    RED.nodes.registerType("CreateEntity", CreateEntity);
+    RED.nodes.registerType("OnQuestChange", OnQuestChange);
 }

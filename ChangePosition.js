@@ -1,17 +1,17 @@
-module.exports = function(RED) {
+module.exports = function (RED) {
 
-    
+
 
     function ChangePosition(config) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-
+        var g_msg;
         this.on('input', function (msg) {
             if (this.server) {
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
-
+                g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
                 temp_msg['type'] = "ChangePosition";
@@ -21,6 +21,12 @@ module.exports = function(RED) {
                 temp_msg['scene'] = parseInt(msg.payload['scene']);
                 temp_msg['player_uid'] = msg.payload['player'];
                 temp_msg['msg_id'] = this.id;
+
+                //判断是否全部有效
+                if (isNaN(temp_msg['X']) || isNaN(temp_msg['Y']) || isNaN(temp_msg['Z']) || isNaN(temp_msg['scene']) || isNaN(temp_msg['player_uid'])) {
+                    this.error("参数错误");
+                    return;
+                }
 
                 //发送信息
                 this.server.send(JSON.stringify(temp_msg).toString());
@@ -44,17 +50,15 @@ module.exports = function(RED) {
             if (temp['type'] === "error") {
                 this.error(temp['data']);
                 return;
-            } 
+            }
 
-            //新建标准返回格式
-            var msg = {};
-            msg['payload'] = temp['data'];
-
+            g_msg.payload['player_uid'] = temp['player_uid'];
+            g_msg.payload['result'] = temp['data'];
             //调用节点输出
             this.send(msg);
-            
+
         }
     }
 
-    RED.nodes.registerType("ChangePosition",ChangePosition);
+    RED.nodes.registerType("ChangePosition", ChangePosition);
 }

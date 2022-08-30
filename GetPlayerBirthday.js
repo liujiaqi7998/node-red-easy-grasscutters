@@ -1,13 +1,15 @@
-module.exports = function(RED) {
+module.exports = function (RED) {
 
     function GetPlayerBirthday(config) {
-        
+
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-        
 
+        var g_msg;
         this.on('input', function (msg) {
             if (this.server) {
+                g_msg = msg;
+
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
 
@@ -37,18 +39,17 @@ module.exports = function(RED) {
             if (temp['type'] === "error") {
                 this.error(temp['data']);
                 return;
-            } 
+            }
 
-            //新建标准返回格式
-            var msg = [{'payload':0},{'payload':0}];
-            msg[0]['payload'] = temp['Month'];
-            msg[1]['payload'] = temp['Day'];
+            g_msg.payload['Month'] = temp['Month'];
+            g_msg.payload['Day'] = temp['Day'];
+            g_msg.payload['player_uid'] = temp['player_uid'];
             //调用节点输出
-            this.send(msg);
-            
+            this.send(g_msg);
+
         }
 
     }
 
-    RED.nodes.registerType("GetPlayerBirthday",GetPlayerBirthday);
+    RED.nodes.registerType("GetPlayerBirthday", GetPlayerBirthday);
 }

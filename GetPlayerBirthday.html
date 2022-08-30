@@ -3,10 +3,10 @@
         category: 'Grasscutters',
         color: '#a6bbcf',
         defaults: {
-            server: {value:"", type:"remote-server"},
+            server: { value: "", type: "remote-server" },
         },
         inputs: 1,
-        outputs: 2,
+        outputs: 1,
         icon: "file.png",
         label: function () {
             return this.name || "GetPlayerBirthday";
@@ -24,28 +24,26 @@
 <script type="text/x-red" data-help-name="GetPlayerBirthday">
     <p>获取玩家生日</p>
     <p>Get Player Birthday</p>
+
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>UID
-                <span class="property-type">String</span>
+            <dt>msg.payload.player
+                <span class="property-type">num</span>
             </dt>
             <dd> 玩家UID </dd>
-            <dd> Player UID </dd>
         </dl>
 
     <h3>输出</h3>
         <dl class="message-properties">
-            <dt>month
+            <dt>msg.payload.month
                 <span class="property-type">num</span>
             </dt>
             <dd> 月 </dd>
-            <dd> coordinate X </dd>
         </dl>
         <dl class="message-properties">
-            <dt>day
+            <dt>msg.payload.day
                 <span class="property-type">num</span>
             </dt>
             <dd> 日 </dd>
-            <dd> coordinate Y </dd>
         </dl>
 </script>
