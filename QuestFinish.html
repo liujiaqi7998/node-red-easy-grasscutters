@@ -29,20 +29,24 @@
 
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>数组
-                <span class="property-type">any</span>
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
             </dt>
-            <dd> 包含:player(玩家uid),Quest_id(剧情ID) </dd>
-            <dd> 完成玩家该剧情 </dd>
-            <dd> Complete the quest </dd>
+            <dd> 玩家UID </dd>
         </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.Quest_id
+                <span class="property-type">num</span>
+            </dt>
+            <dd> 剧情ID</dd>
+        </dl>
+        
 
     <h3>输出</h3>
         <dl class="message-properties">
-            <dt>操作结果
+            <dt>msg.payload.result
                 <span class="property-type">bool</span>
             </dt>
-            <dd> 输出为true时表示创建完成 </dd>
-            <dd> When the output is true, the creation is completed </dd>
+            <dd> 为true时表示完成成功 </dd>
         </dl>
 </script>

@@ -29,22 +29,25 @@
 
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>数组
-                <span class="property-type">any</span>
+            <dt>msg.payload.Quest_id
+                <span class="property-type">num</span>
             </dt>
-            <dd> 包含:id(剧情ID),state(目标状态)</dd>
-            <dd> state(目标状态)为String型,id(剧情ID)为int</dd>
-            <dd> state(目标状态)可以是:NONE(正常执行)、UNSTARTED(未开始)、UNFINISHED(未完成)、FINISHED(完成)、FAILED(失败)</dd>
-            <dd> 要检测的剧情 </dd>
-            <dd> Plot to detect </dd>
+            <dd> 剧情ID</dd>
         </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.state
+                <span class="property-type">string</span>
+            </dt>
+            <dd> 目标状态</dd>
+            <dd> state(目标状态)可以是:NONE(正常)、UNSTARTED(未开始)、UNFINISHED(未完成)、FINISHED(完成)、FAILED(失败)</dd>
+        </dl>
+        
 
     <h3>输出</h3>
         <dl class="message-properties">
-            <dt>玩家UID
-                <span class="property-type">int</span>
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
             </dt>
             <dd> 剧情改变对应的玩家 </dd>
-            <dd> Players corresponding to scenario change </dd>
         </dl>
 </script>

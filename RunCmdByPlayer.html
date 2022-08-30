@@ -26,19 +26,22 @@
     <p>Execute commands using the console</p>
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>执行数组
-                <span class="property-type">arry</span>
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
             </dt>
-            <dd> 包含:cmd(命令),player(玩家uid) </dd>
-            <dd> 以玩家身份执行命令 </dd>
-            <dd> Execute commands as a player </dd>
+            <dd> 玩家UID </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.cmd
+                <span class="property-type">num</span>
+            </dt>
+            <dd> 命令 </dd>
         </dl>
     <h3>输出</h3>
-    <dl class="message-properties">
-        <dt>执行结果
-            <span class="property-type">String</span>
-        </dt>
-        <dd> 输出执行结果 </dd>
-        <dd> Output execution result </dd>
-    </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.data
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> 执行结果 </dd>
+        </dl>
 </script>

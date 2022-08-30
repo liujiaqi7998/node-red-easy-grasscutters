@@ -6,18 +6,28 @@ module.exports = function (RED) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-
+        var g_msg;
         this.on('input', function (msg) {
             if (this.server) {
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
-
+                g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
                 temp_msg['type'] = "OnQuestChange";
-                temp_msg['id'] = parseInt(msg.payload['id']);
+                temp_msg['id'] = parseInt(msg.payload['Quest_id']);
                 temp_msg['state'] = msg.payload['state'];
                 temp_msg['msg_id'] = this.id;
+                //检测参数是否正确
+                if (temp_msg['id'] === undefined || temp_msg['state'] === undefined) {
+                    this.error("参数错误");
+                    return;
+                }
+                //检测参数是否为空
+                if (temp_msg['id'] === "" || temp_msg['state'] === "") {
+                    this.error("参数为空");
+                    return;
+                }
 
                 //发送信息
                 this.server.send(JSON.stringify(temp_msg).toString());
@@ -50,12 +60,9 @@ module.exports = function (RED) {
                 return;
             }
 
-            //新建标准返回格式
-            var msg = {};
-            msg['payload'] = temp['data'];
-
+            g_msg.payload['player'] = temp['data'];
             //调用节点输出
-            this.send(msg);
+            this.send(g_msg);
 
         }
     }

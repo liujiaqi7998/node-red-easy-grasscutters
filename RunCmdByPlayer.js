@@ -4,13 +4,13 @@ module.exports = function (RED) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-        
+        var g_msg;
 
         this.on('input', function (msg) {
             if (this.server) {
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
-
+                g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
                 temp_msg['type'] = "CMD";
@@ -41,12 +41,11 @@ module.exports = function (RED) {
                 return;
             } 
 
-            //新建标准返回格式
-            var msg = {};
-            msg['payload'] = temp['data'];
 
+            g_msg.payload['data'] = temp['data'];
+            g_msg.payload['player'] = temp['player_uid'];
             //调用节点输出
-            this.send(msg);
+            this.send(g_msg);
             
         }
 
