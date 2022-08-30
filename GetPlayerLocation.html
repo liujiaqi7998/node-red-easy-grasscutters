@@ -3,10 +3,10 @@
         category: 'Grasscutters',
         color: '#a6bbcf',
         defaults: {
-            server: {value:"", type:"remote-server"},
+            server: { value: "", type: "remote-server" },
         },
         inputs: 1,
-        outputs: 4,
+        outputs: 1,
         icon: "file.png",
         label: function () {
             return this.name || "GetPlayerLocation";
@@ -22,44 +22,41 @@
 </script>
 
 <script type="text/x-red" data-help-name="GetPlayerLocation">
-    <p>获取玩家位置</p>
-    <p>Get Player Location</p>
-    <h3>输入</h3>
-        <dl class="message-properties">
-            <dt>UID
-                <span class="property-type">String</span>
-            </dt>
-            <dd> 玩家UID </dd>
-            <dd> Player UID </dd>
-        </dl>
 
-    <h3>输出</h3>
-        <dl class="message-properties">
-            <dt>X
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 坐标X </dd>
-            <dd> coordinate X </dd>
-        </dl>
-        <dl class="message-properties">
-            <dt>Y
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 坐标Y </dd>
-            <dd> coordinate Y </dd>
-        </dl>
-        <dl class="message-properties">
-            <dt>Z
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 坐标Z </dd>
-            <dd> coordinate Z </dd>
-        </dl>
-        <dl class="message-properties">
-            <dt>场景ID
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 场景（地图、秘境）ID </dd>
-            <dd> Scene ID </dd>
-        </dl>
+    <p>获取玩家位置</p>
+        <p>Get Player Birthday</p>
+    
+        <h3>输入</h3>
+            <dl class="message-properties">
+                <dt>msg.payload.player
+                    <span class="property-type">String</span>
+                </dt>
+                <dd> 玩家UID </dd>
+            </dl>
+    
+        <h3>输出</h3>
+            <dl class="message-properties">
+                <dt>msg.payload.scene
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> 场景ID</dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.X
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> X坐标 </dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.Y
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> Y坐标 </dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.Z
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> Z坐标 </dd>
+            </dl>
 </script>

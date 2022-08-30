@@ -26,25 +26,44 @@
 <script type="text/x-red" data-help-name="OnPosition">
     <p>有玩家在指定场景坐标半径内触发</p>
     <p>Triggered by a player within the specified scene coordinate radius</p>
-
+    
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>数组
-                <span class="property-type">any</span>
+            <dt>msg.payload.R
+                <span class="property-type">num</span>
             </dt>
-            <dd> 包含:X,Y,Z,scene(场景ID),R(半径)</dd>
-            <dd> X、Y、Z、R(半径)为float型,scene(场景ID)为int</dd>
-            <dd> 注意: Z坐标不作为判断依据!</dd>
-            <dd> 坐标半径信息 </dd>
-            <dd> Coordinate radius information </dd>
+            <dd> 半径</dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.scene
+                <span class="property-type">num</span>
+            </dt>
+            <dd> 场景ID</dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.X
+                <span class="property-type">num</span>
+            </dt>
+            <dd> X坐标 </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.Y
+                <span class="property-type">num</span>
+            </dt>
+            <dd> Y坐标 </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.Z
+                <span class="property-type">num</span>
+            </dt>
+            <dd> Z坐标 </dd>
         </dl>
 
     <h3>输出</h3>
         <dl class="message-properties">
-            <dt>玩家UID
+            <dt>msg.payload.player
                 <span class="property-type">String</span>
             </dt>
-            <dd> 进入指定区域的玩家 </dd>
-            <dd> Players entering the designated area </dd>
+            <dd> 进入指定区域的玩家UID </dd>
         </dl>
 </script>

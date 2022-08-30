@@ -24,24 +24,23 @@
 </script>
 
 <script type="text/x-red" data-help-name="OnKillEntity">
+    
     <p>实体死亡事件</p>
     <p>Entity deaths</p>
-
-    <h3>输入</h3>
-        <dl class="message-properties">
-            <dt>实体唯一ID
-                <span class="property-type">int</span>
-            </dt>
-            <dd> 要监测实体的唯一ID,请通过添加实体获得 </dd>
-            <dd> To monitor the unique ID of an entity, obtain it by adding an entity </dd>
-        </dl>
-
-    <h3>输出</h3>
-        <dl class="message-properties">
-            <dt>实体唯一ID
-                <span class="property-type">int</span>
-            </dt>
-            <dd> 杀死实体的唯一实体ID </dd>
-            <dd> Unique entity ID of the killing entity </dd>
-        </dl>
+    
+        <h3>输入</h3>
+            <dl class="message-properties">
+                <dt>msg.payload.Entity_uuid
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> 实体唯一UUID </dd>
+            </dl>
+    
+        <h3>输出</h3>
+            <dl class="message-properties">
+                <dt>msg.payload.Entity_uuid
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> 杀死实体的唯一实体ID</dd>
+            </dl>
 </script>

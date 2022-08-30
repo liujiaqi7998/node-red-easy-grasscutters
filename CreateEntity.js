@@ -21,9 +21,18 @@ module.exports = function (RED) {
                 temp_msg['level'] = parseInt(msg.payload['level']);
                 temp_msg['player_uid'] = msg.payload['player'];
 
-
                 temp_msg['msg_id'] = this.id;
 
+                //检测是否有效
+                if (temp_msg['id'] === undefined || temp_msg['amount'] === undefined || temp_msg['level'] === undefined || temp_msg['player_uid'] === undefined) {
+                    this.error("参数错误");
+                    return;
+                }
+                //不能是空值
+                if (temp_msg['id'] === "" || temp_msg['amount'] === "" || temp_msg['level'] === "" || temp_msg['player_uid'] === "") {
+                    this.error("参数错误");
+                    return;
+                }
                 //发送信息
                 this.server.send(JSON.stringify(temp_msg).toString());
             } else {
@@ -47,7 +56,7 @@ module.exports = function (RED) {
                 this.error(temp['data']);
                 return;
             }
-            
+
             g_msg.payload['player'] = temp['player_uid'];
             g_msg.payload['Entity_uuid'] = temp['data'];
             //调用节点输出

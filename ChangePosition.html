@@ -25,33 +25,43 @@
 
 <script type="text/x-red" data-help-name="ChangePosition">
     <p>传送到指定场景坐标</p>
-    <p>Transmit to the designated scene coordinates</p>
+    <p>transmit</p>
 
-    <h3>输入</h3>
+    <h3>输入数组</h3>
         <dl class="message-properties">
-            <dt>msg.payload.scene
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 场景ID</dd>
-            <dt>msg.payload.X
-                <span class="property-type">num</span>
-            </dt>
-            <dd> X坐标 </dd>
-            <dt>msg.payload.Y
-                <span class="property-type">num</span>
-            </dt>
-            <dd> Y坐标 </dd>
-            <dt>msg.payload.Z
-                <span class="property-type">num</span>
-            </dt>
-            <dd> Z坐标 </dd>
-            <dt>msg.payload.player
-                <span class="property-type">num</span>
-            </dt>
-            <dd> 玩家UID </dd>
+            <dl class="message-properties">
+                <dt>msg.payload.scene
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> 场景ID</dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.X
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> X坐标 </dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.Y
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> Y坐标 </dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.Z
+                    <span class="property-type">num</span>
+                </dt>
+                <dd> Z坐标 </dd>
+            </dl>
+            <dl class="message-properties">
+                <dt>msg.payload.player
+                    <span class="property-type">String</span>
+                </dt>
+                <dd> 玩家UID </dd>
+            </dl>
         </dl>
 
-    <h3>输出</h3>
+    <h3>输出数组</h3>
         <dl class="message-properties">
             <dt>msg.payload.result
                 <span class="property-type">bool</span>
