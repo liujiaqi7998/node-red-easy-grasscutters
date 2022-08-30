@@ -43,7 +43,7 @@ module.exports = function (RED) {
 
             g_msg.payload['Month'] = temp['Month'];
             g_msg.payload['Day'] = temp['Day'];
-            g_msg.payload['player_uid'] = temp['player_uid'];
+            g_msg.payload['player'] = temp['player_uid'];
             //调用节点输出
             this.send(g_msg);
 

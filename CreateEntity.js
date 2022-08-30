@@ -48,7 +48,7 @@ module.exports = function (RED) {
                 return;
             }
             
-            g_msg.payload['player_uid'] = temp['player_uid'];
+            g_msg.payload['player'] = temp['player_uid'];
             g_msg.payload['Entity_uuid'] = temp['data'];
             //调用节点输出
             this.send(g_msg);
