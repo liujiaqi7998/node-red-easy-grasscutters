@@ -11,7 +11,10 @@
         "EasyGrasscutters"
     ],
     "scripts": {
-        "test": "echo \"A grasscutters node for Animation game\""
+        "start": "echo \"A grasscutters node for Animation game\" && exit 1",
+        "dev": "echo \"A grasscutters node for Animation game\" && exit 1",
+        "build": "echo \"A grasscutters node for Animation game\" && exit 1",
+        "test": "echo \"A grasscutters node for Animation game\" && exit 1"
     },
     "contributors": [
         {
