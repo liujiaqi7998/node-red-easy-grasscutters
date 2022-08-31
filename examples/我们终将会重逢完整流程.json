@@ -1,0 +1,418 @@
+[
+    {
+        "id": "b2415bf361b5d48d",
+        "type": "tab",
+        "label": "我们终将会重逢完整流程",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a62649928d2659a5",
+        "type": "QuestAction",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "6f7fa064200fad24",
+                "b0065535b5d0e3bd"
+            ]
+        ]
+    },
+    {
+        "id": "a0e8d7ad5da25dc6",
+        "type": "QuestFinish",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 1030,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3c6068788039bf4",
+        "type": "change",
+        "z": "b2415bf361b5d48d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.Quest_id",
+                "pt": "msg",
+                "to": "800304",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [
+                "a0e8d7ad5da25dc6"
+            ]
+        ]
+    },
+    {
+        "id": "7201c4fe4fdd28ea",
+        "type": "change",
+        "z": "b2415bf361b5d48d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.Quest_id",
+                "pt": "msg",
+                "to": "800303",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 400,
+        "wires": [
+            [
+                "eb49cdeefebfe1d1"
+            ]
+        ]
+    },
+    {
+        "id": "eb49cdeefebfe1d1",
+        "type": "QuestFinish",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 1010,
+        "y": 400,
+        "wires": [
+            [
+                "e63522f0b750c43c"
+            ]
+        ]
+    },
+    {
+        "id": "dd476c81c57c3d74",
+        "type": "ChangePosition",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 1000,
+        "y": 320,
+        "wires": [
+            [
+                "3a3c9f4c75639856"
+            ]
+        ]
+    },
+    {
+        "id": "7f474509e9e2b22d",
+        "type": "change",
+        "z": "b2415bf361b5d48d",
+        "name": "传送到废墟",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.X",
+                "pt": "msg",
+                "to": "-157.0",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Y",
+                "pt": "msg",
+                "to": "1.2777793",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Z",
+                "pt": "msg",
+                "to": "-53.0",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.scene",
+                "pt": "msg",
+                "to": "20105",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 320,
+        "wires": [
+            [
+                "dd476c81c57c3d74"
+            ]
+        ]
+    },
+    {
+        "id": "6f7fa064200fad24",
+        "type": "change",
+        "z": "b2415bf361b5d48d",
+        "name": "检测是否进入废墟",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.X",
+                "pt": "msg",
+                "to": "13.66",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Y",
+                "pt": "msg",
+                "to": "39.871418",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Z",
+                "pt": "msg",
+                "to": "-77.30001",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.scene",
+                "pt": "msg",
+                "to": "20105",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.R",
+                "pt": "msg",
+                "to": "15",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "4b05ce15d43e993a"
+            ]
+        ]
+    },
+    {
+        "id": "4b05ce15d43e993a",
+        "type": "OnPosition",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 990,
+        "y": 220,
+        "wires": [
+            [
+                "2f9688e09c5f1ed9"
+            ]
+        ]
+    },
+    {
+        "id": "e63522f0b750c43c",
+        "type": "delay",
+        "z": "b2415bf361b5d48d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 400,
+        "wires": [
+            [
+                "d3c6068788039bf4"
+            ]
+        ]
+    },
+    {
+        "id": "2f9688e09c5f1ed9",
+        "type": "delay",
+        "z": "b2415bf361b5d48d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "7",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 200,
+        "wires": [
+            [
+                "7f474509e9e2b22d"
+            ]
+        ]
+    },
+    {
+        "id": "3a3c9f4c75639856",
+        "type": "delay",
+        "z": "b2415bf361b5d48d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 320,
+        "wires": [
+            [
+                "7201c4fe4fdd28ea"
+            ]
+        ]
+    },
+    {
+        "id": "d55660be44485f2f",
+        "type": "OnPosition",
+        "z": "b2415bf361b5d48d",
+        "server": "",
+        "x": 990,
+        "y": 140,
+        "wires": [
+            [
+                "2f9688e09c5f1ed9"
+            ]
+        ]
+    },
+    {
+        "id": "b0065535b5d0e3bd",
+        "type": "change",
+        "z": "b2415bf361b5d48d",
+        "name": "检测是否进入废墟",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.X",
+                "pt": "msg",
+                "to": "13.66",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Y",
+                "pt": "msg",
+                "to": "39.871418",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Z",
+                "pt": "msg",
+                "to": "-77.30001",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.scene",
+                "pt": "msg",
+                "to": "20104",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.R",
+                "pt": "msg",
+                "to": "15",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 140,
+        "wires": [
+            [
+                "d55660be44485f2f"
+            ]
+        ]
+    },
+    {
+        "id": "9c2a77b15c405a1b",
+        "type": "inject",
+        "z": "b2415bf361b5d48d",
+        "name": "我们终将会重逢完整流程",
+        "props": [
+            {
+                "p": "payload.Quest_id",
+                "v": "800301",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "40d0252291354279"
+            ]
+        ]
+    },
+    {
+        "id": "40d0252291354279",
+        "type": "template",
+        "z": "b2415bf361b5d48d",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "a62649928d2659a5"
+            ]
+        ]
+    }
+]

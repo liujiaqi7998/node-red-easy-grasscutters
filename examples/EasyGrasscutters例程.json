@@ -1,0 +1,1375 @@
+[
+    {
+        "id": "01c67b758d3278df",
+        "type": "tab",
+        "label": "EasyGrasscutters例程",
+        "disabled": false,
+        "info": "本例程包含的Grasscutters全部节点的使用方法\r\n用户可以根据例程中的节点创作自己的流程",
+        "env": []
+    },
+    {
+        "id": "7eee05ce2dcdeb3d",
+        "type": "RunCommand",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 760,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "315e6046e0da2950",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "控制台执行",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "help",
+        "payloadType": "str",
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "7eee05ce2dcdeb3d"
+            ]
+        ]
+    },
+    {
+        "id": "752a5b86ad542d82",
+        "type": "RunCmdByPlayer",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 950,
+        "y": 240,
+        "wires": [
+            [
+                "fc6f30c5ae45057a"
+            ]
+        ]
+    },
+    {
+        "id": "4ada5bf9f192f43f",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "以玩家身份执行命令",
+        "props": [
+            {
+                "p": "payload.cmd",
+                "v": "heal",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "e47e1c9ea7824cee"
+            ]
+        ]
+    },
+    {
+        "id": "9413b48f86290dab",
+        "type": "GetPlayerNum",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "a9aab8de43eb4cf6"
+            ]
+        ]
+    },
+    {
+        "id": "a2cda35b10a7692a",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "获取玩家数量",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "9413b48f86290dab"
+            ]
+        ]
+    },
+    {
+        "id": "a9aab8de43eb4cf6",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "fc6f30c5ae45057a",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "15f5a6d79bedc579",
+        "type": "ConsoleLog",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 930,
+        "y": 120,
+        "wires": [
+            [
+                "8b8ae8f1ced92dac"
+            ]
+        ]
+    },
+    {
+        "id": "8b8ae8f1ced92dac",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4d3bb0c9d5bb7a3c",
+        "type": "GetPlayerLocation",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 950,
+        "y": 320,
+        "wires": [
+            [
+                "002a470a60c52723"
+            ]
+        ]
+    },
+    {
+        "id": "7963d4f503581de1",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "获取玩家位置",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "2b8cbe41b889ae55"
+            ]
+        ]
+    },
+    {
+        "id": "002a470a60c52723",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d9335e2c1b99a59a",
+        "type": "GetPlayerBirthday",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 950,
+        "y": 400,
+        "wires": [
+            [
+                "ede32a8e59549a71"
+            ]
+        ]
+    },
+    {
+        "id": "076761b2087ece8f",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "获取玩家生日",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 550,
+        "y": 400,
+        "wires": [
+            [
+                "e31d639ddac64d60"
+            ]
+        ]
+    },
+    {
+        "id": "ede32a8e59549a71",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a269e68f7d9df913",
+        "type": "QuestAction",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 930,
+        "y": 480,
+        "wires": [
+            [
+                "4d738c01f4b38bd4"
+            ]
+        ]
+    },
+    {
+        "id": "9c9e90751e726070",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "开始剧情",
+        "props": [
+            {
+                "p": "payload.Quest_id",
+                "v": "30601",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 540,
+        "y": 480,
+        "wires": [
+            [
+                "792e02f1a4781537"
+            ]
+        ]
+    },
+    {
+        "id": "4d738c01f4b38bd4",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "42952fee5076fafa",
+        "type": "QuestFinish",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 930,
+        "y": 560,
+        "wires": [
+            [
+                "be86142b808ba104"
+            ]
+        ]
+    },
+    {
+        "id": "6dbf320f82a64f95",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "完成剧情",
+        "props": [
+            {
+                "p": "payload.Quest_id",
+                "v": "30601",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "cb9896238304b815"
+            ]
+        ]
+    },
+    {
+        "id": "be86142b808ba104",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "dcb1ad2482f835c7",
+        "type": "OnPosition",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 810,
+        "y": 900,
+        "wires": [
+            [
+                "5a5c10b36ec2b998"
+            ]
+        ]
+    },
+    {
+        "id": "901d08b830d58995",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "当玩家在指定场景坐标半径内触发",
+        "props": [
+            {
+                "p": "payload.X",
+                "v": "2264.5725",
+                "vt": "str"
+            },
+            {
+                "p": "payload.Y",
+                "v": "216.09009",
+                "vt": "str"
+            },
+            {
+                "p": "payload.Z",
+                "v": "-895.56683",
+                "vt": "str"
+            },
+            {
+                "p": "payload.scene",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "p": "payload.R",
+                "v": "10",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 570,
+        "y": 900,
+        "wires": [
+            [
+                "dcb1ad2482f835c7"
+            ]
+        ]
+    },
+    {
+        "id": "5a5c10b36ec2b998",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "9891c82ac12e5ece",
+        "type": "ChangePosition",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 940,
+        "y": 620,
+        "wires": [
+            [
+                "d3423a82f4d0962f"
+            ]
+        ]
+    },
+    {
+        "id": "dd1d9336de85aba7",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "传送",
+        "props": [
+            {
+                "p": "payload.X",
+                "v": "2264.5725",
+                "vt": "str"
+            },
+            {
+                "p": "payload.Y",
+                "v": "216.09009",
+                "vt": "str"
+            },
+            {
+                "p": "payload.Z",
+                "v": "-895.56683",
+                "vt": "str"
+            },
+            {
+                "p": "payload.scene",
+                "v": "3",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 530,
+        "y": 620,
+        "wires": [
+            [
+                "17469759b1b5de9e"
+            ]
+        ]
+    },
+    {
+        "id": "d3423a82f4d0962f",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "34f83719728d52d7",
+        "type": "CreateEntity",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 930,
+        "y": 680,
+        "wires": [
+            [
+                "148920a4d03c299b"
+            ]
+        ]
+    },
+    {
+        "id": "edc65abe9c4fa495",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "添加实体",
+        "props": [
+            {
+                "p": "payload.Entity_id",
+                "v": "21010101",
+                "vt": "str"
+            },
+            {
+                "p": "payload.amount",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.level",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 520,
+        "y": 680,
+        "wires": [
+            [
+                "1830873bf454a75b"
+            ]
+        ]
+    },
+    {
+        "id": "148920a4d03c299b",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "89d39fce8de21806",
+        "type": "OnKillEntity",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 1210,
+        "y": 960,
+        "wires": [
+            [
+                "35433acff8bde7b6"
+            ]
+        ]
+    },
+    {
+        "id": "5f625bd537d9a72a",
+        "type": "CreateEntity",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 970,
+        "y": 960,
+        "wires": [
+            [
+                "89d39fce8de21806"
+            ]
+        ]
+    },
+    {
+        "id": "35433acff8bde7b6",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "e0dbb647ccb2f875",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "完整的杀死实体触发流程",
+        "props": [
+            {
+                "p": "payload.Entity_id",
+                "v": "21010101",
+                "vt": "str"
+            },
+            {
+                "p": "payload.amount",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.level",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 550,
+        "y": 960,
+        "wires": [
+            [
+                "b24658635ed7e878"
+            ]
+        ]
+    },
+    {
+        "id": "10c234fac5e549c7",
+        "type": "OnQuestChange",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 790,
+        "y": 840,
+        "wires": [
+            [
+                "5b4fc6c99de883a1"
+            ]
+        ]
+    },
+    {
+        "id": "5b4fc6c99de883a1",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "c7f68e4c4f31a074",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "当玩家触发剧情",
+        "props": [
+            {
+                "p": "payload.Quest_id",
+                "v": "30601",
+                "vt": "str"
+            },
+            {
+                "p": "payload.state",
+                "v": "FINISHED",
+                "vt": "str"
+            },
+            {
+                "p": "payload.player",
+                "v": "666777",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 540,
+        "y": 840,
+        "wires": [
+            [
+                "10c234fac5e549c7"
+            ]
+        ]
+    },
+    {
+        "id": "da0f906a833b4d37",
+        "type": "SendMessage",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 940,
+        "y": 1260,
+        "wires": [
+            [
+                "942bca31382a3f2e"
+            ]
+        ]
+    },
+    {
+        "id": "d02f742bbc19582c",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "发送聊天消息",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 510,
+        "y": 1260,
+        "wires": [
+            [
+                "2c9d7fdbbb949e8a"
+            ]
+        ]
+    },
+    {
+        "id": "942bca31382a3f2e",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "aaa4b4e4ec38971e",
+        "type": "change",
+        "z": "01c67b758d3278df",
+        "name": "原石10个",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.itemCount",
+                "pt": "msg",
+                "to": "10",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.itemId",
+                "pt": "msg",
+                "to": "201",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.itemLevel",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 1140,
+        "wires": [
+            [
+                "2646b66047bc648d"
+            ]
+        ]
+    },
+    {
+        "id": "987e6eb198ea8dbf",
+        "type": "change",
+        "z": "01c67b758d3278df",
+        "name": "摩拉100个",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.itemCount",
+                "pt": "msg",
+                "to": "100",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.itemId",
+                "pt": "msg",
+                "to": "202",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.itemLevel",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1200,
+        "wires": [
+            [
+                "2646b66047bc648d"
+            ]
+        ]
+    },
+    {
+        "id": "eb8f71a62b7daa19",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "发送邮件",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 500,
+        "y": 1160,
+        "wires": [
+            [
+                "aaa4b4e4ec38971e",
+                "987e6eb198ea8dbf"
+            ]
+        ]
+    },
+    {
+        "id": "2646b66047bc648d",
+        "type": "join",
+        "z": "01c67b758d3278df",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "1",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 1160,
+        "wires": [
+            [
+                "100302bbb6fcecbb"
+            ]
+        ]
+    },
+    {
+        "id": "4a886e16ac4db9be",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "100302bbb6fcecbb",
+        "type": "function",
+        "z": "01c67b758d3278df",
+        "name": "正文内容",
+        "func": "var content = `\n这是正文\n可以多行\n可以夹带网页\n<type=\"webview\" text=\"Github\" href=\"https://github.com/liujiaqi7998/node-red-easy-grasscutters\"/>\n`\n// expireTime 是到期时间（时间戳:秒）\n\nvar rmsg = {\n    \"payload\":{\n        \"player_uid\": \"666777\",\n        \"MailContent\": {\n            \"title\": \"标题：测试邮件\",\n            \"content\": content,\n            \"sender\": \"发件人：派蒙\"\n        },\n        \"expireTime\": 1785513600,\n        \"itemList\": msg.payload\n    }\n}\nreturn rmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1160,
+        "wires": [
+            [
+                "98759e88b0686697"
+            ]
+        ]
+    },
+    {
+        "id": "98759e88b0686697",
+        "type": "SendMail",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 1240,
+        "y": 1160,
+        "wires": [
+            [
+                "4a886e16ac4db9be"
+            ]
+        ]
+    },
+    {
+        "id": "2c9d7fdbbb949e8a",
+        "type": "change",
+        "z": "01c67b758d3278df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.player",
+                "pt": "msg",
+                "to": "666777",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.message",
+                "pt": "msg",
+                "to": "HELLO",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1260,
+        "wires": [
+            [
+                "da0f906a833b4d37"
+            ]
+        ]
+    },
+    {
+        "id": "f31f966a85ae0c70",
+        "type": "DelQuest",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 920,
+        "y": 740,
+        "wires": [
+            [
+                "a7c53fc51ede353a"
+            ]
+        ]
+    },
+    {
+        "id": "b0f1a0038b5c9341",
+        "type": "change",
+        "z": "01c67b758d3278df",
+        "name": "全部删除",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.player",
+                "pt": "msg",
+                "to": "666777",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.Quest_id",
+                "pt": "msg",
+                "to": "ALL",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 740,
+        "wires": [
+            [
+                "f31f966a85ae0c70"
+            ]
+        ]
+    },
+    {
+        "id": "8199fc08bebff2e1",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "删除剧情",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "b0f1a0038b5c9341"
+            ]
+        ]
+    },
+    {
+        "id": "a7c53fc51ede353a",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "e47e1c9ea7824cee",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 760,
+        "y": 240,
+        "wires": [
+            [
+                "752a5b86ad542d82"
+            ]
+        ]
+    },
+    {
+        "id": "2b8cbe41b889ae55",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "4d3bb0c9d5bb7a3c"
+            ]
+        ]
+    },
+    {
+        "id": "e31d639ddac64d60",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "d9335e2c1b99a59a"
+            ]
+        ]
+    },
+    {
+        "id": "792e02f1a4781537",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 480,
+        "wires": [
+            [
+                "a269e68f7d9df913"
+            ]
+        ]
+    },
+    {
+        "id": "cb9896238304b815",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 560,
+        "wires": [
+            [
+                "42952fee5076fafa"
+            ]
+        ]
+    },
+    {
+        "id": "17469759b1b5de9e",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "9891c82ac12e5ece"
+            ]
+        ]
+    },
+    {
+        "id": "1830873bf454a75b",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 740,
+        "y": 680,
+        "wires": [
+            [
+                "34f83719728d52d7"
+            ]
+        ]
+    },
+    {
+        "id": "b24658635ed7e878",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 780,
+        "y": 960,
+        "wires": [
+            [
+                "5f625bd537d9a72a"
+            ]
+        ]
+    },
+    {
+        "id": "7e8efe9ba8b46976",
+        "type": "comment",
+        "z": "01c67b758d3278df",
+        "name": "执行器",
+        "info": "该区域节点均为执行类节点",
+        "x": 350,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f6e9c7304bf576b2",
+        "type": "comment",
+        "z": "01c67b758d3278df",
+        "name": "控制台节点",
+        "info": "该区域节点与控制台服务器有关",
+        "x": 360,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "48992a4e7c47e27d",
+        "type": "comment",
+        "z": "01c67b758d3278df",
+        "name": "信息提醒",
+        "info": "该区域节点为信息提醒类节点",
+        "x": 300,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "282cd908c55d076f",
+        "type": "comment",
+        "z": "01c67b758d3278df",
+        "name": "监听器",
+        "info": "该区域节点为监听器节点\n输入后会根据相应规则在需要时触发",
+        "x": 290,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "8ae97402da524d74",
+        "type": "OnPlayerJoin",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 510,
+        "y": 1020,
+        "wires": [
+            [
+                "f1b75acfb5eebcf1"
+            ]
+        ]
+    },
+    {
+        "id": "f1b75acfb5eebcf1",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "d5d782cff77d38b0",
+        "type": "OnPlayerExp",
+        "z": "01c67b758d3278df",
+        "server": "",
+        "x": 910,
+        "y": 1080,
+        "wires": [
+            [
+                "508a24935fb1fda8"
+            ]
+        ]
+    },
+    {
+        "id": "508a24935fb1fda8",
+        "type": "debug",
+        "z": "01c67b758d3278df",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "249ebea2b140a58b",
+        "type": "inject",
+        "z": "01c67b758d3278df",
+        "name": "当玩家达到经验触发",
+        "props": [
+            {
+                "p": "payload.Exp",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 530,
+        "y": 1080,
+        "wires": [
+            [
+                "82c0f8b52dc0da7c"
+            ]
+        ]
+    },
+    {
+        "id": "82c0f8b52dc0da7c",
+        "type": "template",
+        "z": "01c67b758d3278df",
+        "name": "玩家UID",
+        "field": "payload.player",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "666777",
+        "output": "str",
+        "x": 720,
+        "y": 1080,
+        "wires": [
+            [
+                "d5d782cff77d38b0"
+            ]
+        ]
+    }
+]

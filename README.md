@@ -8,7 +8,7 @@
 
 EasyGrasscutters满足你！
 
-这个插件拥有超过18（未来更新还会添加）个节点包括：9个执行功能节点，5个事件监听器和其他各种功能节点。
+这个插件拥有超过19（未来更新还会添加）个节点包括：9个执行功能节点，5个事件监听器和其他各种功能节点。
 
 可以实现：添加剧情、完成剧情、添加实体、传送等功能。
 
@@ -16,7 +16,15 @@ EasyGrasscutters满足你！
 
 你可以使用工具箱里面的节点创作，实现你的剧情线和小游戏。
 
-~~（当然，你要是非得把杀丘丘人和你智能家居开灯操作连在一块，我也拦不住你）~~
+你甚至可以添加其他模块，与我的世界，智能家居，等其他领域联动！
+
+**说明**：
+
+本插件为我一人耗时打造，可能在某些说明或功能上处理的不尽人意，你可以[提交Issues](https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues)来取得我的帮助（如果我看到的话一定会帮你），当然，如果你喜欢这个项目还请给我一个Star
+
+我平时维护时间较少，还请看到项目有能力的大佬帮助维护一下，我会及时合并请求
+
+I'd really like to internationalize this project, but it's thought it's a lot of work and needs a good translation, I'd appreciate it if you could help translate
 
 ## 版本说明
 
@@ -56,6 +64,12 @@ EasyGrasscutters满足你！
 7. 点击部署开始自动化
 
    <img src="https://raw.githubusercontent.com/liujiaqi7998/GraphicBed/main/img/202208311954720.png" alt="image-20220831195425638" style="zoom:50%;" />
+
+## 导入例程
+
+点击“菜单”->“导入”->“例子”，找到你需要的例程
+
+![image-20220831205447152](https://raw.githubusercontent.com/liujiaqi7998/GraphicBed/main/img/202208312054362.png)
 
 ## 注意事项
 
