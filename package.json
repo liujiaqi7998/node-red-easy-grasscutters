@@ -7,8 +7,12 @@
     },
     "keywords": [
         "node-red",
-        "Grasscutters"
+        "Grasscutters",
+        "EasyGrasscutters"
     ],
+    "scripts": {
+        "test": ""
+    },
     "contributors": [
         {
             "name": "666Qi",
