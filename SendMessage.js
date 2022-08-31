@@ -39,9 +39,6 @@ module.exports = function(RED) {
         // 处理回调函数
         this.deal = function (temp) {
 
-            // 删除该节点，防止重复响应问题
-            this.server.rec_del(this.id);
-
             // 判断返回数据是否正常
             if (temp['type'] === "error") {
                 this.error(temp['data']);

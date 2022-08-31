@@ -18,6 +18,13 @@ module.exports = function (RED) {
                 temp_msg['id'] = parseInt(msg.payload['Quest_id']);
                 temp_msg['state'] = msg.payload['state'] + "" ;
                 temp_msg['msg_id'] = this.id;
+
+                //检测msg.payload['player']是否存在
+                if (msg.payload['player'] != null) {
+                    temp_msg['player_uid'] = String(msg.payload['player']);
+                }
+                
+
                 //检测参数是否正确
                 if (temp_msg['id'] === undefined || temp_msg['state'] === undefined) {
                     this.error("参数错误");
@@ -51,8 +58,6 @@ module.exports = function (RED) {
         // 处理回调函数
         this.deal = function (temp) {
 
-            // 删除该节点，防止重复响应问题
-            this.server.rec_del(this.id);
 
             // 判断返回数据是否正常
             if (temp['type'] === "error") {

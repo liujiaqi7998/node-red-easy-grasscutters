@@ -1,8 +1,8 @@
-module.exports = function(RED) {
+module.exports = function (RED) {
 
-    
 
-    function QuestAction(config) {
+
+    function OnPlayerExp(config) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
@@ -14,14 +14,24 @@ module.exports = function(RED) {
                 g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
-                temp_msg['type'] = "QuestAction";
-                temp_msg['Quest_id'] = parseInt(msg.payload['Quest_id']);
+                temp_msg['type'] = "OnPlayerExp";
+                temp_msg['Exp'] = parseInt(msg.payload['Exp']);
                 temp_msg['msg_id'] = this.id;
-                temp_msg['player_uid'] = msg.payload['player'] + "" ;
 
-                //检测是否有参数
-                if (msg.payload['Quest_id'] == null) {
+                //检测msg.payload['player']是否存在
+                if (msg.payload['player'] != null) {
+                    temp_msg['player_uid'] = String(msg.payload['player']);
+                }
+                
+
+                //检测参数是否正确
+                if (temp_msg['Exp'] === undefined) {
                     this.error("参数错误");
+                    return;
+                }
+                //检测参数是否为空
+                if (temp_msg['Exp'] === "") {
+                    this.error("参数为空");
                     return;
                 }
 
@@ -33,6 +43,14 @@ module.exports = function(RED) {
         });
 
         this.on('close', function () {
+            // 发送注销监听事件
+            var temp_msg = {};
+            temp_msg['type'] = "OnPlayerExp";
+            temp_msg['msg_id'] = this.id;
+            temp_msg['del'] = "1";
+            this.server.send(JSON.stringify(temp_msg).toString());
+
+            // 从接收监听器中注销
             this.server.rec_del(this.id);
         });
 
@@ -44,15 +62,14 @@ module.exports = function(RED) {
             if (temp['type'] === "error") {
                 this.error(temp['data']);
                 return;
-            } 
-
-
-            g_msg.payload['result'] = temp['data'];
+            }
+            g_msg.payload['Exp'] = temp['Exp'];
+            g_msg.payload['player'] = temp['data'];
             //调用节点输出
             this.send(g_msg);
-            
+
         }
     }
 
-    RED.nodes.registerType("QuestAction",QuestAction);
+    RED.nodes.registerType("OnPlayerExp", OnPlayerExp);
 }

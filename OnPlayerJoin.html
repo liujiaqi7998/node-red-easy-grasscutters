@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('OnPlayerJoin', {
+        category: 'Grasscutters',
+        color: '#a6bbcf',
+        defaults: {
+            server: { value: "", type: "remote-server" },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "OnPlayerJoin";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="OnPlayerJoin">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="OnPlayerJoin">
+    <p> 玩家进入服务器触发 </p>
+    <p>Players enter the server trigger</p>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
+            </dt>
+            <dd> 玩家UID</dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.is_first
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> 是否为第一次进入 </dd>
+        </dl>
+</script>

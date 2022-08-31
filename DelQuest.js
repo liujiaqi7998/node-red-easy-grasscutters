@@ -2,7 +2,7 @@ module.exports = function(RED) {
 
     
 
-    function QuestAction(config) {
+    function DelQuest(config) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
@@ -14,17 +14,15 @@ module.exports = function(RED) {
                 g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
-                temp_msg['type'] = "QuestAction";
-                temp_msg['Quest_id'] = parseInt(msg.payload['Quest_id']);
+                temp_msg['type'] = "DelQuest";
+                temp_msg['Quest_id'] = msg.payload['Quest_id'] + "";
                 temp_msg['msg_id'] = this.id;
                 temp_msg['player_uid'] = msg.payload['player'] + "" ;
-
                 //检测是否有参数
                 if (msg.payload['Quest_id'] == null) {
                     this.error("参数错误");
                     return;
                 }
-
                 //发送信息
                 this.server.send(JSON.stringify(temp_msg).toString());
             } else {
@@ -48,11 +46,12 @@ module.exports = function(RED) {
 
 
             g_msg.payload['result'] = temp['data'];
+
             //调用节点输出
             this.send(g_msg);
             
         }
     }
 
-    RED.nodes.registerType("QuestAction",QuestAction);
+    RED.nodes.registerType("DelQuest",DelQuest);
 }

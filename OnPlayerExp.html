@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('OnQuestChange', {
+    RED.nodes.registerType('OnPlayerExp', {
         category: 'Grasscutters',
         color: '#a6bbcf',
         defaults: {
@@ -9,12 +9,12 @@
         outputs: 1,
         icon: "file.png",
         label: function () {
-            return this.name || "OnQuestChange";
+            return this.name || "OnPlayerExp";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="OnQuestChange">
+<script type="text/x-red" data-template-name="OnPlayerExp">
 
     <div class="form-row">
         <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
@@ -23,23 +23,16 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="OnQuestChange">
-    <p>剧情改变时触发</p>
-    <p>Triggered when the plot changes</p>
+<script type="text/x-red" data-help-name="OnPlayerExp">
+    <p>玩家经验达到时触发</p>
+    <p>Player experience is triggered when it reaches</p>
 
     <h3>输入</h3>
         <dl class="message-properties">
-            <dt>msg.payload.Quest_id
+            <dt>msg.payload.Exp
                 <span class="property-type">num</span>
             </dt>
-            <dd> 剧情ID</dd>
-        </dl>
-        <dl class="message-properties">
-            <dt>msg.payload.state
-                <span class="property-type">string</span>
-            </dt>
-            <dd> 目标状态</dd>
-            <dd> state(目标状态)可以是:NONE(正常)、UNSTARTED(未开始)、UNFINISHED(未完成)、FINISHED(完成)、FAILED(失败)</dd>
+            <dd> 目标经验</dd>
         </dl>
         <dl class="message-properties">
             <dt>msg.payload.player
@@ -55,6 +48,12 @@
             <dt>msg.payload.player
                 <span class="property-type">String</span>
             </dt>
-            <dd> 剧情改变对应的玩家 </dd>
+            <dd> 经验达到的玩家uid </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.Exp
+                <span class="property-type">num</span>
+            </dt>
+            <dd> 玩家经验 </dd>
         </dl>
 </script>

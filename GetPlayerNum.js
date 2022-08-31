@@ -6,13 +6,13 @@ module.exports = function(RED) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-        
+        var g_msg;
 
         this.on('input', function (msg) {
             if (this.server) {
                 //在服务器中注册该节点，以便于回调
                 this.server.rec_add(this.id, this);
-
+                g_msg = msg;
                 //建立发送信息的JSON模板
                 var temp_msg = {};
                 temp_msg['type'] = "GetPlayerNum";
@@ -31,10 +31,7 @@ module.exports = function(RED) {
 
         // 处理回调函数
         this.deal = function (temp) {
-
-            // 删除该节点，防止重复响应问题
-            this.server.rec_del(this.id);
-
+            
             // 判断返回数据是否正常
             if (temp['type'] === "error") {
                 this.error(temp['data']);
@@ -42,11 +39,9 @@ module.exports = function(RED) {
             } 
 
             //新建标准返回格式
-            var msg = {};
-            msg['payload'] = temp['data'];
-
+            g_msg.payload['num'] = temp['data'];
             //调用节点输出
-            this.send(msg);
+            this.send(g_msg);
             
         }
     }

@@ -3,6 +3,7 @@ module.exports = function (RED) {
     var ws = require("ws");
     var rec_map = new Map();
     var rec_cmd_map = new Map();
+    var OnPlayerJoin_map = new Map();
 
     function RemoteServerNode(n) {
         RED.nodes.createNode(this, n);
@@ -31,6 +32,12 @@ module.exports = function (RED) {
                 })
             }
 
+            if (obj['type'] === "OnPlayerJoin") {
+                OnPlayerJoin_map.forEach(function (value, key) {
+                    value.deal(obj);
+                })
+            }
+
             if (rec_map.has(obj['msg_id'])) {
                 rec_map.get(obj['msg_id']).deal(obj);
             }
@@ -52,7 +59,7 @@ module.exports = function (RED) {
         });
 
         this.send = function (msg) {
-            node.log("发送数据:"  + msg);
+            node.log("发送:"  + msg);
             socket.send(msg);
         }
 
@@ -74,6 +81,16 @@ module.exports = function (RED) {
         // 本函数用于删除CMD回调函数
         this.rec_cmd_del = function (id) {
             rec_cmd_map.delete(id);
+        }
+
+        // 本函数用于注册OnPlayerJoin回调函数
+        this.OnPlayerJoin_add = function (id, nod) {
+            OnPlayerJoin_map.set(id, nod);
+        }
+
+        // 本函数用于删除OnPlayerJoin回调函数
+        this.OnPlayerJoin_del = function (id) {
+            OnPlayerJoin_map.delete(id);
         }
     }
     RED.nodes.registerType("remote-server", RemoteServerNode);
