@@ -26,7 +26,7 @@
         "url": "https://www.cyqi.top"
     },
     "homepage": "https://github.com/liujiaqi7998/node-red-easy-grasscutters",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
