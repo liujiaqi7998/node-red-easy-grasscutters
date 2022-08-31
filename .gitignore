@@ -40,4 +40,7 @@ node_modules
 .node_repl_history
 
 # Bower Modules
-bower_components
+bower_componen
+
+# Dependency directory
+node_modules/
