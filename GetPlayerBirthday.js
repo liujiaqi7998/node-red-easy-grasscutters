@@ -17,7 +17,7 @@ module.exports = function (RED) {
                 var temp_msg = {};
                 temp_msg['type'] = "GetPlayerBirthday";
                 temp_msg['msg_id'] = this.id;
-                temp_msg['player_uid'] = msg.payload['player'];
+                temp_msg['player_uid'] = msg.payload['player'] + "" ;
                 //检测是否有效
                 if (temp_msg['player_uid'] === undefined) {
                     this.error("参数错误");

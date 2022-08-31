@@ -19,7 +19,7 @@ module.exports = function (RED) {
                 temp_msg['id'] = parseInt(msg.payload['Entity_id']);
                 temp_msg['amount'] = parseInt(msg.payload['amount']);
                 temp_msg['level'] = parseInt(msg.payload['level']);
-                temp_msg['player_uid'] = msg.payload['player'];
+                temp_msg['player_uid'] = msg.payload['player'] + "" ;
 
                 temp_msg['msg_id'] = this.id;
 

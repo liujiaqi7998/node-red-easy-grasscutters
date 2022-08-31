@@ -26,6 +26,8 @@
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
+            "SendMail": "SendMail.js",
+            "SendMessage": "SendMessage.js",
             "OnQuestChange": "OnQuestChange.js",
             "CreateEntity": "CreateEntity.js",
             "OnKillEntity": "OnKillEntity.js",

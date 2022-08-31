@@ -16,7 +16,7 @@ module.exports = function (RED) {
                 var temp_msg = {};
                 temp_msg['type'] = "OnQuestChange";
                 temp_msg['id'] = parseInt(msg.payload['Quest_id']);
-                temp_msg['state'] = msg.payload['state'];
+                temp_msg['state'] = msg.payload['state'] + "" ;
                 temp_msg['msg_id'] = this.id;
                 //检测参数是否正确
                 if (temp_msg['id'] === undefined || temp_msg['state'] === undefined) {

@@ -17,7 +17,7 @@ module.exports = function(RED) {
                 temp_msg['type'] = "QuestAction";
                 temp_msg['Quest_id'] = parseInt(msg.payload['Quest_id']);
                 temp_msg['msg_id'] = this.id;
-                temp_msg['player_uid'] = msg.payload['player'];
+                temp_msg['player_uid'] = msg.payload['player'] + "" ;
 
                 //检测是否有参数
                 if (msg.payload['Quest_id'] == null) {

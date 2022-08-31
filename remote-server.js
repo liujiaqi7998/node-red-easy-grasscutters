@@ -19,6 +19,12 @@ module.exports = function (RED) {
             var received_msg = e.data;
             node.log("返回数据:"  + received_msg);
             const obj = JSON.parse(received_msg);
+
+            if (obj['type'] === "error") {
+                node.error(obj['data']);
+                return;
+            } 
+
             if (obj['type'] === "log_return") {
                 rec_cmd_map.forEach(function (value, key) {
                     value.deal(obj['data']);

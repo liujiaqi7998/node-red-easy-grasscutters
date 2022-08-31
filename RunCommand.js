@@ -9,7 +9,7 @@ module.exports = function (RED) {
             if (this.server) {
                 var temp_msg = {};
                 temp_msg['type'] = "CMD";
-                temp_msg['cmd'] = msg.payload;
+                temp_msg['cmd'] = msg.payload + "" ;
                 temp_msg['msg_id'] = this.id;
                 this.server.send(JSON.stringify(temp_msg).toString());
             } else {

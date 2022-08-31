@@ -19,7 +19,7 @@ module.exports = function (RED) {
                 temp_msg['Y'] = parseFloat(msg.payload['Y']);
                 temp_msg['Z'] = parseFloat(msg.payload['Z']);
                 temp_msg['scene'] = parseInt(msg.payload['scene']);
-                temp_msg['player_uid'] = msg.payload['player'];
+                temp_msg['player_uid'] = msg.payload['player'] + "";
                 temp_msg['msg_id'] = this.id;
 
                 //判断是否全部有效
