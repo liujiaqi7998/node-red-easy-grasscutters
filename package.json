@@ -11,7 +11,7 @@
         "EasyGrasscutters"
     ],
     "scripts": {
-        "test": ""
+        "test": "echo \"A grasscutters node for Animation game\""
     },
     "contributors": [
         {
