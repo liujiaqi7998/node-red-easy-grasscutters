@@ -5,26 +5,47 @@ module.exports = function (RED) {
     var rec_cmd_map = new Map();
     var OnPlayerJoin_map = new Map();
 
+
+
+
+
     function RemoteServerNode(n) {
         RED.nodes.createNode(this, n);
         this.url = n.url;
         var node = this;
 
         var socket = new ws(n.url);
+        //没有实际作用只是为了防止被踢出
+        var heartCheck = {
+            timeout: 60000,//60ms
+            timeoutObj: null,
+            reset: function () {
+                clearTimeout(this.timeoutObj);
+                this.start();
+            },
+            start: function () {
+                this.timeoutObj = setTimeout(function () {
+                    socket.send("{\"type:\":\"heart\"}");
+                }, this.timeout)
+            }
+        }
+
         socket.onopen = function (e) {
+            heartCheck.start();
             node.log("[EasyGrasscutters] 连接到服务器");
             this.socket = socket;
         };
 
         socket.onmessage = function (e) {
+            heartCheck.reset();
             var received_msg = e.data;
-            node.log("返回数据:"  + received_msg);
+            //node.log("返回数据:" + received_msg);
             const obj = JSON.parse(received_msg);
 
             if (obj['type'] === "error") {
                 node.error(obj['data']);
                 return;
-            } 
+            }
 
             if (obj['type'] === "log_return") {
                 rec_cmd_map.forEach(function (value, key) {
@@ -59,7 +80,7 @@ module.exports = function (RED) {
         });
 
         this.send = function (msg) {
-            node.log("发送:"  + msg);
+            //node.log("发送:" + msg);
             socket.send(msg);
         }
 

@@ -39,7 +39,7 @@ module.exports = function(RED) {
             } 
 
             //新建标准返回格式
-            g_msg.payload['num'] = temp['data'];
+            g_msg.payload = temp['data'];
             //调用节点输出
             this.send(g_msg);
             
