@@ -1,6 +1,6 @@
 {
     "name": "node-red-easy-grasscutters",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
     "dependencies": {
         "ws": "^8.8.1"
@@ -33,25 +33,25 @@
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
-            "OnPlayerExp": "OnPlayerExp.js",
-            "OnPlayerJoin": "OnPlayerJoin.js",
-            "DelQuest": "DelQuest.js",
-            "SendMail": "SendMail.js",
-            "SendMessage": "SendMessage.js",
-            "OnQuestChange": "OnQuestChange.js",
-            "CreateEntity": "CreateEntity.js",
-            "OnKillEntity": "OnKillEntity.js",
-            "ChangePosition": "ChangePosition.js",
-            "OnPosition": "OnPosition.js",
-            "QuestFinish": "QuestFinish.js",
-            "QuestAction": "QuestAction.js",
-            "RunCmdByPlayer": "RunCmdByPlayer.js",
-            "ConsoleLog": "ConsoleLog.js",
-            "RunCommand": "RunCommand.js",
-            "remote-server": "remote-server.js",
-            "GetPlayerNum": "GetPlayerNum.js",
-            "GetPlayerLocation": "GetPlayerLocation.js",
-            "GetPlayerBirthday": "GetPlayerBirthday.js"
+            "remote-server": "node/remote-server.js",
+            "OnPlayerExp": "node/Event/OnPlayerExp.js",
+            "OnPlayerJoin": "node/Event/OnPlayerJoin.js",
+            "OnQuestChange": "node/Event/OnQuestChange.js",
+            "OnKillEntity": "node/Event/OnKillEntity.js",
+            "OnPosition": "node/Event/OnPosition.js",
+            "ConsoleLog": "node/ConsoleLog.js",
+            "RunCommand": "node/RunCommand.js",
+            "DelQuest": "node/DelQuest.js",
+            "SendMail": "node/SendMail.js",
+            "SendMessage": "node/SendMessage.js",
+            "CreateEntity": "node/CreateEntity.js",
+            "ChangePosition": "node/ChangePosition.js",
+            "QuestFinish": "node/QuestFinish.js",
+            "QuestAction": "node/QuestAction.js",
+            "RunCmdByPlayer": "node/RunCmdByPlayer.js",
+            "GetPlayerNum": "node/GetPlayerNum.js",
+            "GetPlayerLocation": "node/GetPlayerLocation.js",
+            "GetPlayerBirthday": "node/GetPlayerBirthday.js"
         }
     }
 }

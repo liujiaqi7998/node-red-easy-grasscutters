@@ -31,6 +31,8 @@ I'd really like to internationalize this project, but it's thought it's a lot of
 ### v0.0.1
 * 实现基本的节点，可以实现命令调试。
 
+### v0.0.2
+* 修改了目录结构，修复SSL证书问题，优化节点界面，优化解释。
 
 
 ## 使用方法
@@ -96,3 +98,7 @@ I'd really like to internationalize this project, but it's thought it's a lot of
 - [ ] NPC添加
 
 - [ ] NPC对话
+
+## 已知问题
+
+1. 提示： Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED... 是插件禁用了https检测导致的，为了让本地用户使用https连接，不会对使用产生影响。

@@ -1,12 +1,13 @@
 module.exports = function (RED) {
 
+    var process = require("node:process");
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
+
     var ws = require("ws");
+    
     var rec_map = new Map();
     var rec_cmd_map = new Map();
     var OnPlayerJoin_map = new Map();
-
-
-
 
 
     function RemoteServerNode(n) {
