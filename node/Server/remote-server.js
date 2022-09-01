@@ -1,11 +1,13 @@
 module.exports = function (RED) {
 
-    var process = require("node:process");
+    /* 解除 websocket 验证SSL证书*/
+    const process = require("node:process");
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
 
-    var ws = require("ws");
     
-    var rec_map = new Map();
+    var ws = require("ws"); //创建websocket对象
+
+    var rec_map = new Map(); //创建一个表保存接收数据的节点
     var rec_cmd_map = new Map();
     var OnPlayerJoin_map = new Map();
 
@@ -14,7 +16,6 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, n);
         this.url = n.url;
         var node = this;
-
         var socket = new ws(n.url);
         //没有实际作用只是为了防止被踢出
         var heartCheck = {
@@ -63,6 +64,12 @@ module.exports = function (RED) {
             if (rec_map.has(obj['msg_id'])) {
                 rec_map.get(obj['msg_id']).deal(obj);
             }
+
+
+            for (var prop in  RED.nodes.getNode(obj['msg_id'])) {
+                console.log(prop);
+            }
+
         };
 
         socket.onerror = function (error) {

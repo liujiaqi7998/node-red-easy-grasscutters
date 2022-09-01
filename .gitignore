@@ -44,3 +44,5 @@ bower_componen
 
 # Dependency directory
 node_modules/
+
+.idea

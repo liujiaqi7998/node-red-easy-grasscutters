@@ -33,7 +33,7 @@
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
         "nodes": {
-            "remote-server": "node/remote-server.js",
+            "remote-server": "node/Server/remote-server.js",
             "OnPlayerExp": "node/Event/OnPlayerExp.js",
             "OnPlayerJoin": "node/Event/OnPlayerJoin.js",
             "OnQuestChange": "node/Event/OnQuestChange.js",
@@ -41,17 +41,17 @@
             "OnPosition": "node/Event/OnPosition.js",
             "ConsoleLog": "node/Console/ConsoleLog.js",
             "RunCommand": "node/Console/RunCommand.js",
-            "DelQuest": "node/DelQuest.js",
-            "SendMail": "node/SendMail.js",
-            "SendMessage": "node/SendMessage.js",
-            "CreateEntity": "node/CreateEntity.js",
-            "ChangePosition": "node/ChangePosition.js",
-            "QuestFinish": "node/QuestFinish.js",
-            "QuestAction": "node/QuestAction.js",
-            "RunCmdByPlayer": "node/RunCmdByPlayer.js",
-            "GetPlayerNum": "node/GetPlayerNum.js",
-            "GetPlayerLocation": "node/GetPlayerLocation.js",
-            "GetPlayerBirthday": "node/GetPlayerBirthday.js"
+            "DelQuest": "node/Behavior/DelQuest.js",
+            "SendMail": "node/Behavior/SendMail.js",
+            "SendMessage": "node/Behavior/SendMessage.js",
+            "CreateEntity": "node/Behavior/CreateEntity.js",
+            "ChangePosition": "node/Behavior/ChangePosition.js",
+            "QuestFinish": "node/Behavior/QuestFinish.js",
+            "QuestAction": "node/Behavior/QuestAction.js",
+            "RunCmdByPlayer": "node/Behavior/RunCmdByPlayer.js",
+            "GetPlayerNum": "node/Behavior/GetPlayerNum.js",
+            "GetPlayerLocation": "node/Behavior/GetPlayerLocation.js",
+            "GetPlayerBirthday": "node/Behavior/GetPlayerBirthday.js"
         }
     }
 }
