@@ -5,16 +5,22 @@ module.exports = function(RED) {
         var node = this;
         node["type"] = "log_return" ;
         node.server = RED.nodes.getNode(config.server);
-        node.server.rec_cmd_add(node.id,node);
+        node.server.broadcast_add(node.id,node);
         
         node.on('close', function() {
-            node.server.rec_cmd_del(node.id);
+            node.server.broadcast_del(node.id);
         });
 
         // 处理回调函数
         node.deal = function (temp) {
-            var msg = {};
-            msg['payload'] =  temp;
+
+            // 判断信息类型是否是自己，如果不是直接返回
+            if (temp['type'] !== "log_return") {
+                return;
+            }
+
+            const msg = {};
+            msg['payload'] =  temp['data'];
             node.send(msg);
         }
     }

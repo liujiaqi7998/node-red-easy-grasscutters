@@ -1,22 +1,30 @@
+const process = require("node:process");
 module.exports = function (RED) {
 
-    /* 解除 websocket 验证SSL证书*/
-    const process = require("node:process");
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
 
-    
     var ws = require("ws"); //创建websocket对象
 
-    var rec_map = new Map(); //创建一个表保存接收数据的节点
-    var rec_cmd_map = new Map();
-    var OnPlayerJoin_map = new Map();
+    var rec_map = new Map(); //创建一个表保存接收数据的节点(该节点都有ID)
+    var broadcast_map = new Map();//保存广播节点(没有ID的节点)
 
 
     function RemoteServerNode(n) {
         RED.nodes.createNode(this, n);
         this.url = n.url;
+
+        this.No_certificate = n.No_certificate;
+        if (this.No_certificate) {
+            /* 解除 websocket 验证SSL证书*/
+            const process = require("node:process");
+            process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+        }else{
+            process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = null;
+        }
+
         var node = this;
         var socket = new ws(n.url);
+
+
         //没有实际作用只是为了防止被踢出
         var heartCheck = {
             timeout: 60000,//60ms
@@ -26,8 +34,10 @@ module.exports = function (RED) {
                 this.start();
             },
             start: function () {
-                this.timeoutObj = setTimeout(function () {
-                    socket.send("{\"type:\":\"heart\"}");
+                this.timeoutObj = setInterval(function () {
+                    const temp_msg = {};
+                    temp_msg['type'] = "heart";
+                    socket.send(JSON.stringify(temp_msg).toString());
                 }, this.timeout)
             }
         }
@@ -35,50 +45,40 @@ module.exports = function (RED) {
         socket.onopen = function (e) {
             heartCheck.start();
             node.log("[EasyGrasscutters] 连接到服务器");
-            this.socket = socket;
         };
 
         socket.onmessage = function (e) {
             heartCheck.reset();
-            var received_msg = e.data;
-            //node.log("返回数据:" + received_msg);
-            const obj = JSON.parse(received_msg);
 
+            //node.log("返回数据:" + e.data);
+            const obj = JSON.parse(e.data);
+
+            //如果消息中存在错误，则直接输出错误
             if (obj['type'] === "error") {
                 node.error(obj['data']);
                 return;
             }
 
-            if (obj['type'] === "log_return") {
-                rec_cmd_map.forEach(function (value, key) {
-                    value.deal(obj['data']);
-                })
-            }
 
-            if (obj['type'] === "OnPlayerJoin") {
-                OnPlayerJoin_map.forEach(function (value, key) {
-                    value.deal(obj);
-                })
-            }
-
+            // 对于有明确节点的数据包，发送到指定节点输出
             if (rec_map.has(obj['msg_id'])) {
                 rec_map.get(obj['msg_id']).deal(obj);
+                return;
             }
 
-
-            for (var prop in  RED.nodes.getNode(obj['msg_id'])) {
-                console.log(prop);
-            }
+            //对于没有明确节点的数据包，广播到所以广播节点
+            broadcast_map.forEach(function (value, key) {
+                value.deal(obj);
+            })
 
         };
 
         socket.onerror = function (error) {
             node.warn(`[EasyGrasscutters] 连接错误：${error.message}`);
-            this.socket = null;
         };
 
-        socket.onclose = function (e) {
-            this.socket = null;
+        socket.onclose = function (error) {
+            node.warn(`[EasyGrasscutters] 连接断开：${error.message}`);
         };
 
         this.on('close', function () {
@@ -102,25 +102,17 @@ module.exports = function (RED) {
             rec_map.delete(id);
         }
 
-        // 本函数用于注册CMD回调函数
-        this.rec_cmd_add = function (id, nod) {
-            rec_cmd_map.set(id, nod);
+        // 本函数用于注册广播回调函数
+        this.broadcast_add = function (id, nod) {
+            broadcast_map.set(id, nod);
         }
 
-        // 本函数用于删除CMD回调函数
-        this.rec_cmd_del = function (id) {
-            rec_cmd_map.delete(id);
+        // 本函数用于删除广播回调函数
+        this.broadcast_del = function (id) {
+            broadcast_map.delete(id);
         }
 
-        // 本函数用于注册OnPlayerJoin回调函数
-        this.OnPlayerJoin_add = function (id, nod) {
-            OnPlayerJoin_map.set(id, nod);
-        }
-
-        // 本函数用于删除OnPlayerJoin回调函数
-        this.OnPlayerJoin_del = function (id) {
-            OnPlayerJoin_map.delete(id);
-        }
     }
+
     RED.nodes.registerType("remote-server", RemoteServerNode);
 }

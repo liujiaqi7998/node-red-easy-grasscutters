@@ -1,9 +1,12 @@
 module.exports = function(RED) {
     function SendMessage(config) {
+        
         RED.nodes.createNode(this, config);//在RED上创建节点
         this.server = RED.nodes.getNode(config.server);//获取Server对象
         this.server.rec_add(this.id, this); //在服务器中注册该节点，以便于回调
+
         var g_msg; //保存输入信息
+
         this.on('input', function (msg) {
             //检测服务器是否正常
             if (this.server) {
@@ -41,13 +44,10 @@ module.exports = function(RED) {
                 return;
             } 
 
-
             g_msg.payload['result'] = temp['data'];
             //调用节点输出
             this.send(g_msg);
-            
         }
     }
-
     RED.nodes.registerType("SendMessage",SendMessage);
 }

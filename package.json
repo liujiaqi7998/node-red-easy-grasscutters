@@ -1,6 +1,6 @@
 {
     "name": "node-red-easy-grasscutters",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
     "dependencies": {
         "ws": "^8.8.1"
@@ -10,6 +10,9 @@
         "Grasscutters",
         "EasyGrasscutters"
     ],
+    "engines": {
+        "node": ">=10.0.0"
+    },
     "scripts": {
         "start": "echo \"A grasscutters node for Animation game\" && exit 1",
         "dev": "echo \"A grasscutters node for Animation game\" && exit 1",
@@ -32,6 +35,7 @@
     "license": "GPL-3.0",
     "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
     "node-red": {
+        "version": ">=1.3.0",
         "nodes": {
             "remote-server": "node/Server/remote-server.js",
             "OnPlayerExp": "node/Event/OnPlayerExp.js",

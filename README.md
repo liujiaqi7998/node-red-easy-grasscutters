@@ -34,6 +34,10 @@ I'd really like to internationalize this project, but it's thought it's a lot of
 ### v0.0.2
 * 修改了目录结构，修复SSL证书问题，优化节点界面，优化解释。
 
+### v0.0.3
+
+* 优化目录结构，合理化修复SSL证书问题，增加了防短链心跳措施。
+
 
 ## 使用方法
 
@@ -101,4 +105,4 @@ I'd really like to internationalize this project, but it's thought it's a lot of
 
 ## 已知问题
 
-1. 提示： Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED... 是插件禁用了https检测导致的，为了让本地用户使用https连接，不会对使用产生影响。
+1. 在本地部署时可能会因为证书问题导致连接失败，可以勾选 “跳过SSL证书检测” 来解决。

@@ -1,16 +1,14 @@
-module.exports = function(RED) {
-
-    
-
+module.exports = function (RED) {
     function SendMail(config) {
 
-        RED.nodes.createNode(this, config);
-        this.server = RED.nodes.getNode(config.server);
+        RED.nodes.createNode(this, config);//在RED上创建节点
+        this.server = RED.nodes.getNode(config.server);//获取Server对象
+        this.server.rec_add(this.id, this);//在服务器中注册该节点，以便于回调
+
         var g_msg;
         this.on('input', function (msg) {
             if (this.server) {
-                //在服务器中注册该节点，以便于回调
-                this.server.rec_add(this.id, this);
+
                 g_msg = msg;
 
                 msg.payload['type'] = "SendMail";
@@ -34,15 +32,15 @@ module.exports = function(RED) {
             if (temp['type'] === "error") {
                 this.error(temp['data']);
                 return;
-            } 
+            }
 
 
             g_msg.payload['result'] = temp['data'];
             //调用节点输出
             this.send(g_msg);
-            
+
         }
     }
 
-    RED.nodes.registerType("SendMail",SendMail);
+    RED.nodes.registerType("SendMail", SendMail);
 }

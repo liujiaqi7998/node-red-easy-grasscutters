@@ -6,25 +6,23 @@ module.exports = function (RED) {
 
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
-
-        this.server.OnPlayerJoin_add(this.id, this);
+        this.server.broadcast_add(this.id, this);
         
 
         this.on('close', function () {
             // 从接收监听器中注销
-            this.server.OnPlayerJoin_map(this.id);
+            this.server.broadcast_del(this.id);
         });
 
         // 处理回调函数
         this.deal = function (temp) {
 
-            // 判断返回数据是否正常
-            if (temp['type'] === "error") {
-                this.error(temp['data']);
+            // 判断信息类型是否是自己，如果不是直接返回
+            if (temp['type'] !== "OnPlayerJoin") {
                 return;
             }
 
-            var msg = {
+            const msg = {
                 payload: {
                     player: temp['data'],
                     is_first: temp['is_first']

@@ -1,16 +1,21 @@
 <script type="text/javascript">
-    RED.nodes.registerType('remote-server',{
+    RED.nodes.registerType('remote-server', {
         category: 'config',
         defaults: {
-            url: {value:"ws://127.0.0.1:16767/easy/jW6wEeBN",required:true},
+            url: {value: "ws://127.0.0.1:16767/easy/jW6wEeBN", required: true},
+            No_certificate: {value: false, required: true},
         },
-        label: function() {
+        label: function () {
             return this.url;
         }
     });
 </script>
 
 <script type="text/html" data-template-name="remote-server">
+    <div class="form-row">
+        <label for="node-config-input-No_certificate">跳过SSL证书检测</label>
+        <input type="checkbox" id="node-config-input-No_certificate">
+    </div>
     <div class="form-row">
         <label for="node-config-input-url"><i class="fa fa-bookmark"></i> url</label>
         <input type="text" id="node-config-input-url">
