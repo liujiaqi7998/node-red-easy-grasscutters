@@ -29,15 +29,21 @@ I'd really like to internationalize this project, but it's thought it's a lot of
 ## 版本说明
 
 ### v0.0.1
+
 * 实现基本的节点，可以实现命令调试。
 
 ### v0.0.2
+
 * 修改了目录结构，修复SSL证书问题，优化节点界面，优化解释。
 
 ### v0.0.3
 
 * 优化目录结构，合理化修复SSL证书问题，增加了防短链心跳措施。
 
+### v0.0.4
+
+* 添加：退出游戏检测 、与NPC对话 和 玩家发送指定信息检测
+* 请确保服务器端安装的EasyGrasscutters版本 >= 3.0
 
 ## 使用方法
 

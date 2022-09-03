@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('OnChat', {
+        category: 'Grasscutters',
+        color: '#a6cf9d',
+        defaults: {
+            server: {value: "", type: "remote-server"},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "OnChat";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="OnChat">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="OnChat">
+    <p> 玩家聊天 </p>
+    <p>Player chat trigger</p>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
+            </dt>
+            <dd> 发送玩家UID </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.to
+                <span class="property-type">String</span>
+            </dt>
+            <dd> 接收玩家UID(服务器是99) </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.msg_type
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> 消息类型(只能是文本或图片:TEXT,ICON) </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.msg_data
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> 消息内容 </dd>
+        </dl>
+
+</script>

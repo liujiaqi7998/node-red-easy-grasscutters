@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    RED.nodes.registerType('OnNpcTalk', {
+        category: 'Grasscutters',
+        color: '#a6cf9d',
+        defaults: {
+            server: {value: "", type: "remote-server"},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "OnNpcTalk";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="OnNpcTalk">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="OnNpcTalk">
+    <p> 玩家与NPC交流触发(测试) </p>
+    <p>Player and NPC communicate with NPC (Test)</p>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>msg.payload.npc_id
+                <span class="property-type">String</span>
+            </dt>
+            <dd> NPC编号(自己摸索) </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.TalkId
+                <span class="property-type">String</span>
+            </dt>
+            <dd> 交流ID(自己摸索) </dd>
+        </dl>
+        <dl class="message-properties">
+            <dt>msg.payload.data
+                <span class="property-type">bool</span>
+            </dt>
+            <dd> true表示成功 </dd>
+        </dl>
+
+</script>

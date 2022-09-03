@@ -1,61 +1,65 @@
 {
-    "name": "node-red-easy-grasscutters",
-    "version": "0.0.3",
-    "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
-    "dependencies": {
-        "ws": "^8.8.1"
+  "name": "node-red-easy-grasscutters",
+  "version": "0.0.3",
+  "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
+  "dependencies": {
+    "ws": "^8.8.1"
+  },
+  "keywords": [
+    "node-red",
+    "Grasscutters",
+    "EasyGrasscutters"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "echo \"A grasscutters node for Animation game\" && exit 1",
+    "dev": "echo \"A grasscutters node for Animation game\" && exit 1",
+    "build": "echo \"A grasscutters node for Animation game\" && exit 1",
+    "test": "echo \"A grasscutters node for Animation game\" && exit 1"
+  },
+  "contributors": [
+    {
+      "name": "666Qi",
+      "url": "https://www.cyqi.top"
     },
-    "keywords": [
-        "node-red",
-        "Grasscutters",
-        "EasyGrasscutters"
-    ],
-    "engines": {
-        "node": ">=10.0.0"
-    },
-    "scripts": {
-        "start": "echo \"A grasscutters node for Animation game\" && exit 1",
-        "dev": "echo \"A grasscutters node for Animation game\" && exit 1",
-        "build": "echo \"A grasscutters node for Animation game\" && exit 1",
-        "test": "echo \"A grasscutters node for Animation game\" && exit 1"
-    },
-    "contributors": [
-        {
-            "name": "666Qi",
-            "url": "https://www.cyqi.top"
-        },
-        "liujiaqi@cyqi.top"
-    ],
-    "repository": "liujiaqi7998/node-red-easy-grasscutters",
-    "author": {
-        "name": "666Qi",
-        "url": "https://www.cyqi.top"
-    },
-    "homepage": "https://github.com/liujiaqi7998/node-red-easy-grasscutters",
-    "license": "GPL-3.0",
-    "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
-    "node-red": {
-        "version": ">=1.3.0",
-        "nodes": {
-            "remote-server": "node/Server/remote-server.js",
-            "OnPlayerExp": "node/Event/OnPlayerExp.js",
-            "OnPlayerJoin": "node/Event/OnPlayerJoin.js",
-            "OnQuestChange": "node/Event/OnQuestChange.js",
-            "OnKillEntity": "node/Event/OnKillEntity.js",
-            "OnPosition": "node/Event/OnPosition.js",
-            "ConsoleLog": "node/Console/ConsoleLog.js",
-            "RunCommand": "node/Console/RunCommand.js",
-            "DelQuest": "node/Behavior/DelQuest.js",
-            "SendMail": "node/Behavior/SendMail.js",
-            "SendMessage": "node/Behavior/SendMessage.js",
-            "CreateEntity": "node/Behavior/CreateEntity.js",
-            "ChangePosition": "node/Behavior/ChangePosition.js",
-            "QuestFinish": "node/Behavior/QuestFinish.js",
-            "QuestAction": "node/Behavior/QuestAction.js",
-            "RunCmdByPlayer": "node/Behavior/RunCmdByPlayer.js",
-            "GetPlayerNum": "node/Behavior/GetPlayerNum.js",
-            "GetPlayerLocation": "node/Behavior/GetPlayerLocation.js",
-            "GetPlayerBirthday": "node/Behavior/GetPlayerBirthday.js"
-        }
+    "liujiaqi@cyqi.top"
+  ],
+  "repository": "liujiaqi7998/node-red-easy-grasscutters",
+  "author": {
+    "name": "666Qi",
+    "url": "https://www.cyqi.top"
+  },
+  "homepage": "https://github.com/liujiaqi7998/node-red-easy-grasscutters",
+  "license": "GPL-3.0",
+  "bugs": "https://github.com/liujiaqi7998/node-red-easy-grasscutters/issues",
+  "node-red": {
+    "version": ">=1.3.0",
+    "nodes": {
+      "remote-server": "node/Server/remote-server.js",
+      "OnNpcTalk": "node/Event/OnNpcTalk.js",
+      "OnPlayerExp": "node/Event/OnPlayerExp.js",
+      "OnChatMsg": "node/Event/OnChatMsg.js",
+      "OnChat": "node/Event/OnChat.js",
+      "OnPlayerJoin": "node/Event/OnPlayerJoin.js",
+      "OnPlayerQuit": "node/Event/OnPlayerQuit.js",
+      "OnQuestChange": "node/Event/OnQuestChange.js",
+      "OnKillEntity": "node/Event/OnKillEntity.js",
+      "OnPosition": "node/Event/OnPosition.js",
+      "ConsoleLog": "node/Console/ConsoleLog.js",
+      "RunCommand": "node/Console/RunCommand.js",
+      "DelQuest": "node/Behavior/DelQuest.js",
+      "SendMail": "node/Behavior/SendMail.js",
+      "SendMessage": "node/Behavior/SendMessage.js",
+      "CreateEntity": "node/Behavior/CreateEntity.js",
+      "ChangePosition": "node/Behavior/ChangePosition.js",
+      "QuestFinish": "node/Behavior/QuestFinish.js",
+      "QuestAction": "node/Behavior/QuestAction.js",
+      "RunCmdByPlayer": "node/Behavior/RunCmdByPlayer.js",
+      "GetPlayerNum": "node/Behavior/GetPlayerNum.js",
+      "GetPlayerLocation": "node/Behavior/GetPlayerLocation.js",
+      "GetPlayerBirthday": "node/Behavior/GetPlayerBirthday.js"
     }
+  }
 }

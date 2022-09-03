@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    RED.nodes.registerType('OnPlayerQuit', {
+        category: 'Grasscutters',
+        color: '#a6cf9d',
+        defaults: {
+            server: {value: "", type: "remote-server"},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "OnPlayerQuit";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="OnPlayerQuit">
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-tag"></i>服务器</label>
+        <select id="node-input-server">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="OnPlayerQuit">
+    <p> 玩家退出服务器触发 </p>
+    <p>Players quit the server trigger</p>
+
+    <h3>输出</h3>
+        <dl class="message-properties">
+            <dt>msg.payload.player
+                <span class="property-type">String</span>
+            </dt>
+            <dd> 玩家UID</dd>
+        </dl>
+
+</script>
