@@ -1,6 +1,6 @@
 {
   "name": "node-red-easy-grasscutters",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A grasscutters node for Animation game 割草机动漫游戏节点",
   "dependencies": {
     "ws": "^8.8.1"
